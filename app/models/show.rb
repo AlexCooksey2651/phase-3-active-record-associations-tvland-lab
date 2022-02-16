@@ -3,18 +3,11 @@ class Show < ActiveRecord::Base
   has_many :actors, through: :characters
   belongs_to :network
 
-  def characters
-    self.characters
-  end
-
-  def network
-    self.network
-  end
-
   def actors_list
-    actors = []
+    actors_list = []
     self.actors.each do |actor|
-        actors << actor.full_name
+        actors_list << actor.full_name
     end
+    actors_list
   end
 end
